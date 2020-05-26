@@ -1,0 +1,43 @@
+img { max-width: 100%; border: 0;}
+.line { border: solid black 3px; }
+
+.row { }
+.row:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.col-12, .col-11, .col-10, .col-9, .col-8, .col-7, 
+.col-6, .col-5, .col-4, .col-3, .col-2, .col-1, .col-off-1 {
+	float: left;
+	/* 한칸 border까지 포함해서 %를 나타낸다.*/
+	box-sizing: border-box;
+}  
+
+.col-pull-1 {margin-left: 8.3333333%;     }
+.col-pull-2 {margin-left: 16.66666667%;   }
+.col-pull-3 {margin-left: 25%;  		  }
+.col-pull-4 {margin-left: 33.33333333%;  }
+.col-pull-5 {margin-left: 41.66666667%;   }
+.col-pull-6 {margin-left: 50%; 		      }
+.col-pull-7 {margin-left: 58.3333333%;    }
+.col-pull-8 {margin-left: 66.66666667%;   }
+.col-pull-9 {margin-left: 74%;			  }
+.col-pull-10{margin-left: 83.3333333%;    }
+.col-pull-11{margin-left: 91.66666667%;   }
+.col-pull-12{margin-left: 100%; 		  }
+
+
+.col-1 {width: 8.3333333%;     }
+.col-2 {width: 16.66666667%;   }
+.col-3 {width: 25%;  		   }
+.col-4 {width: 33.33333333%;   }
+.col-5 {width: 41.66666667%;   }
+.col-6 {width: 50%; 		   }
+.col-7 {width: 58.3333333%;    }
+.col-8 {width: 66.66666667%;   }
+.col-9 {width: 75%;			   }
+.col-10{width: 83.3333333%;    }
+.col-11{width: 91.66666667%;   }
+.col-12{width: 100%; 		   }

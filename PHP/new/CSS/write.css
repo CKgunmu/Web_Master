@@ -1,0 +1,24 @@
+.category {
+	margin: 5px;
+}
+
+.category div {
+	margin:5px;
+}
+
+.category input {
+    width : 300px; 
+    height : 25px;
+    font-size : 15px; 
+}
+
+.category select {
+	width : 300px; 
+    height : 25px;
+    font-size : 15px; 
+}
+
+
+#button {
+
+}
