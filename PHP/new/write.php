@@ -26,10 +26,10 @@
 
 			<div class="col-4 row" id="right_list">
 				<? 
-					if(empty($_COOKIE['user_name'])) {
-						echo "<li><a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></li>";
+					if(!empty($_COOKIE['user_name'])) {
+						echo "<a href='logout.php'>로그아웃</a>";
 					} else {
-						echo "<li><a href='./logout.php'>로그아웃</a></li>";
+						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
 				?>
 			</div>
@@ -63,7 +63,7 @@
                     <textarea class="category" name="content" rows="10" cols="30" style="width:800px; height:350px;"></textarea>
 
                     <div id="button">
-                        <input type="submit" name="login" class="btnSubmit" value="Login"/>
+                        <input type="submit" name="login" class="btnSubmit" value="Submit"/>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
                 	$login = $_POST[login];
                 	$login_check = $_COOKIE['user_name'];
 
-                	if(isset($login) != NULL) {
+                	if(isset($login) != NULL and empty($_COOKIE['user_name'])) {
                 		if(isset($user) and isset($title) and isset($cate) and isset($text)) {
                 			$query = "SELECT name FROM users where name='$login_check'";
                 			$sql = mysqli_query($conn, $query);
@@ -91,7 +91,10 @@
 							}
 	                	} else {
 	                		echo "잘못된 사용자 입니다.";
+	                		header('Location: ./index.php');
 	                	}
+	                	echo " <script>alert('잘못된 사용자 입니다.'')</script>";
+	                	header('Location: ./index.php');
 					}
 
                 ?>

@@ -1,3 +1,6 @@
+<?
+	require_once("DB_connect.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +28,10 @@
 
 			<div class="col-4 row" id="right_list">
 				<? 
-					if(empty($_COOKIE['user_name'])) {
-						echo "<li><a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></li>";
+					if(!empty($_COOKIE['user_name'])) {
+						echo "<a href='logout.php'>로그아웃</a>";
 					} else {
-						echo "<li><a href='./logout.php'>로그아웃</a></li>";
+						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
 				?>
 			</div>
@@ -46,7 +49,7 @@
 				<div class="col-1">순서  </div>
 				
 				<?
-					$sql = "SELECT * FROM board";
+					$sql = "SELECT * FROM board where category='python' ";
 					$result = mysqli_query($conn, $sql);
 
 					while ($row = mysqli_fetch_array($result)) {
