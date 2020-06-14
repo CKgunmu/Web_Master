@@ -38,7 +38,9 @@
 			<div class="col-4 row" id="right_list">
 				<? 
 					if(!empty($_COOKIE['user_name'])) {
-						echo "<a href='logout.php'>로그아웃</a>";
+						echo "<div class='col-12'><a>".$_COOKIE['user_name']."님 환영합니다 </a></div>";
+						echo "<div class='col-12'><a href=./logout.php>로그아웃<a></div>";
+						
 					} else {
 						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
@@ -97,13 +99,13 @@
                 			if($check_data) {
 	                			$sql = "UPDATE board SET user='$user', title='$title', texts='$text', category='$cate' where no='$no'";
 	                			mysqli_query($conn, $sql);
-	                			echo "<script>alert('글이 수정되었습니다.')</script>";
+	                			echo "<script>alert('글이 수정되었습니다.');</script>";
 	                			header('Location: ./'. $cate .'.php');
 	                		} else {
 								echo "빈칸을 확인해 주세요";
 							}
 	                	} else {
-	                		echo "잘못된 사용자 입니다.";
+	                		echo "<script>alert('잘못된 사용자입니다.');</script>";
 	                	}
 					}
 

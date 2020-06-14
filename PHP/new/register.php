@@ -27,7 +27,9 @@
 			<div class="col-4 row" id="right_list">
 				<? 
 					if(!empty($_COOKIE['user_name'])) {
-						echo "<a href='logout.php'>로그아웃</a>";
+						echo "<div class='col-12'><a>".$_COOKIE['user_name']."님 환영합니다 </a></div>";
+						echo "<div class='col-12'><a href=./logout.php>로그아웃<a></div>";
+						
 					} else {
 						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
@@ -69,7 +71,7 @@
 							$query = "INSERT INTO users(name, password, email) VALUES('$name','$password','$mail')";
 							$sql = mysqli_query($conn, $query);
 
-							echo "<script>alert('계정이 생성되었습니다.')</script>";
+							echo "<script>alert('계정이 생성되었습니다.');</script>";
 							header('Location: ./login.php');
 						} else {
 							echo "The ID that already exists.";

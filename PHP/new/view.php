@@ -36,7 +36,9 @@ $cookie = $_COOKIE[user_name];
 			<div class="col-4 row" id="right_list">
 				<? 
 					if(!empty($_COOKIE['user_name'])) {
-						echo "<a href='logout.php'>로그아웃</a>";
+						echo "<div class='col-12'><a>".$_COOKIE['user_name']."님 환영합니다 </a></div>";
+						echo "<div class='col-12'><a href=./logout.php>로그아웃<a></div>";
+						
 					} else {
 						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
@@ -66,7 +68,7 @@ $cookie = $_COOKIE[user_name];
             			echo '</div>';
 
             		} else {
-						echo "선택하신 게시물은 없습니다.";
+						echo " <script>alert('선택한 게시물이 없습니다..');</script>";
 					}
 
 					if ($del_check === ture) {

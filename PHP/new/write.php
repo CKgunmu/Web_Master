@@ -27,7 +27,9 @@
 			<div class="col-4 row" id="right_list">
 				<? 
 					if(!empty($_COOKIE['user_name'])) {
-						echo "<a href='logout.php'>로그아웃</a>";
+						echo "<div class='col-12'><a>".$_COOKIE['user_name']."님 환영합니다 </a></div>";
+						echo "<div class='col-12'><a href=./logout.php>로그아웃<a></div>";
+						
 					} else {
 						echo "<a href='login.php'><img src='./IMG/login.PNG' width='60px' height='60px'></a>";
 					}
@@ -75,7 +77,7 @@
                 	$login = $_POST[login];
                 	$login_check = $_COOKIE['user_name'];
 
-                	if(isset($login) != NULL and empty($_COOKIE['user_name'])) {
+                	if(isset($login) != NULL) {
                 		if(isset($user) and isset($title) and isset($cate) and isset($text)) {
                 			$query = "SELECT name FROM users where name='$login_check'";
                 			$sql = mysqli_query($conn, $query);
@@ -87,13 +89,15 @@
 	                			echo "<script>alert('글이 작성되었습니다.')</script>";
 	                			header('Location: ./'. $cate .'.php');
 	                		} else {
-								echo "빈칸을 확인해 주세요";
+								echo "<script>alert('빈칸을 확인해 주세요.');</script>"; 
 							}
+
 	                	} else {
-	                		echo "잘못된 사용자 입니다.";
-	                		header('Location: ./index.php');
+	                		echo " <script>alert('잘못된 사용자 입니다.');</script>";
+	                			header('Location: ./index.php');
 	                	}
-	                	echo " <script>alert('잘못된 사용자 입니다.'')</script>";
+					} else {
+						echo " <script>alert('잘못된 사용자 입니다.');</script>";
 	                	header('Location: ./index.php');
 					}
 
