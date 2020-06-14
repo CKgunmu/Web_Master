@@ -37,9 +37,18 @@ body { margin: 0; padding:0; background-color: gray;}
 	color: black;
 }
 
+#right_list {
+	float: right;
+}
+
 #right_list a{
 	float: right;
 	padding-top: 5px;
+}
+
+#right_list li{
+	list-style: none;
+	float: right;
 }
 
 #button-group button {
